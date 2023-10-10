@@ -1,0 +1,75 @@
+<template>
+<div class="container">
+   <div class="row">
+    <form class="col s12" @submit.prevent="createdProjects">
+      <div class="row">
+        <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate"
+            v-model="project.title">
+          <label for="first_name">Nombre del proyecto</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="last_name" type="text" class="validate"
+          v-model="project.description">
+          <label for="last_name">Descripcion del proyecto</label>
+        </div>
+        <p>
+            <label>
+        <input type="checkbox"  v-model="project.langs" value="Html"/>
+        <span>Html</span>
+      </label> 
+    </p>
+    <p>
+            <label>
+        <input type="checkbox" v-model="project.langs" value="Css"/>
+        <span>Css</span>
+      </label> 
+    </p>
+    <p>
+            <label>
+        <input type="checkbox" v-model="project.langs" value="Javascript"/>
+        <span>Javascript</span>
+      </label> 
+    </p>
+    <p>
+        
+            <label>
+        <input type="checkbox" v-model="project.langs" value="Vue"/>
+        <span>Vue</span>
+      </label> 
+    </p>
+       
+        <button class="btn waves-effect waves-light col s12" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</template>
+
+<script>
+export default {
+    data(){
+        return{
+            project:{
+                title: " ",
+                description: " ",
+                langs: [],
+                status: true
+            }
+        }
+    },
+    methods: {
+       
+        async createdProjects() {
+          console.log(this.project)
+          //  const data = await fetch("https://crud-vue-5a4b5-default-rtdb.firebaseio.com/")
+          //  const res = await data.json()
+          //  this.projects= res;
+          //    console.log(res)
+        }
+    }
+}
+</script>
