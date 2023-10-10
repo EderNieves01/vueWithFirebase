@@ -1,6 +1,15 @@
 <template>
     <div class="container">
+      
          <h1>Vista Proyectos</h1>
+         <div class="row">
+            <router-link to="/created" class="col s12 waves-effect waves-light btn amber darken-3">
+            
+            <i class="material-icons">add</i>
+            Crear proyectos
+        </router-link>
+         </div>
+       
          <contenedor/>
     </div>
  
