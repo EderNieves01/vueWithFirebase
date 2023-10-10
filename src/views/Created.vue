@@ -64,11 +64,14 @@ export default {
     methods: {
        
         async createdProjects() {
-          console.log(this.project)
-           const data = await fetch("https://crud-vue-5a4b5-default-rtdb.firebaseio.com/",
+          
+           const data = await fetch("https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects.json",//projects.json crea en firebase,
            {
+            //creamos el metodo post para ingresar datos en firebase
             method: "POST",
-            project: this.project
+            //mandamos el objeto en formato objeto json de javascript
+            body: JSON.stringify(this.project)
+            // project: this.project
            }
            )
         //    const res = await data.json()
