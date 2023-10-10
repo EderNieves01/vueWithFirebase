@@ -65,10 +65,15 @@ export default {
        
         async createdProjects() {
           console.log(this.project)
-          //  const data = await fetch("https://crud-vue-5a4b5-default-rtdb.firebaseio.com/")
-          //  const res = await data.json()
-          //  this.projects= res;
-          //    console.log(res)
+           const data = await fetch("https://crud-vue-5a4b5-default-rtdb.firebaseio.com/",
+           {
+            method: "POST",
+            project: this.project
+           }
+           )
+        //    const res = await data.json()
+           
+            
         }
     }
 }
