@@ -22,7 +22,11 @@ export default {
            const data = await fetch("https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects.json")
            const res = await data.json()
           
-             console.log(data)
+           //recorremos el array projects y le agregamos la respuesta con su indice
+            for(let i in res){
+              this.projects.push(res[i])
+            }
+            
         }
     }
 }
