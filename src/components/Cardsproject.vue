@@ -4,9 +4,13 @@
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-            <span class="card-title">{{ data.name }}</span>
+            <span class="card-title">{{ data.title }}</span>
           <p>{{ data.description }}</p>
-          <p>Tecnologias: {{ data.langs }}</p>
+          <!-- recorremos cada langs en el parrafo, ponemos -1 para eliminar la ultima coma
+          que los separa -->
+          <p>Tecnologias: <span v-for="(lang, i) in data.langs" :key="i">
+          {{ data.langs.length - 1 <= i ? lang : ` ${ lang},  `}}
+          </span></p>
         </div>
         <div class="card-action">
             <div class="row">
@@ -30,7 +34,7 @@
 <script>
 export default{
     props: {
-        data: Object,
+        data: Object
     }
 }
 </script>

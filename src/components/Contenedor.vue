@@ -1,7 +1,13 @@
 <template>
   <div class="row">
     <div class="col s12 m7">
-    <Cardsproject :data="projects"/>
+
+       <!-- aqui colocamos el v-for para llamar los objetos del array en este lado
+    para luego introducirlos en el card -->
+    <Cardsproject 
+    v-for="(proyecto, id) in projects"
+    :key="id"
+    :data="proyecto"/>
   </div>
   </div>
 </template>
@@ -13,7 +19,9 @@ export default {
     data: () =>({
       projects: [],
     }),
-    components: { Cardsproject },
+    components: {
+       Cardsproject
+       },
     mounted(){
         this.getProjects();
     },
@@ -26,6 +34,7 @@ export default {
             for(let i in res){
               this.projects.push(res[i])
             }
+            console.log(this.projects)
             
         }
     }
