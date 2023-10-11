@@ -33,10 +33,11 @@ const routes = [
   }
   ,
   {
-    path: '/edit',
-    name: 'edit',
+    //creando rutas dinamicas con parametros : + parametro (id)
+    path: '/edit-project/:id',
+    name: 'Edit',
     // route level code-splitting
-    // this generates a separate chunk (edit.[hash].js) for this route
+    // this generates a separate chunk (edit-project.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "edit" */ '../views/Edit.vue')
   }

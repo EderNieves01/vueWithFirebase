@@ -4,17 +4,23 @@
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-            <span class="card-title">{{ data.title }}</span>
-          <p>{{ data.description }}</p>
+          <!-- cambiamos el metodo de entra de data.title por data.res.title ya
+          que ahora se trata de un objeto dentro de array que en este caso
+          es la prop data del array project -->
+            <span class="card-title">{{ data.res.title }}</span>
+          <p>{{ data.res.description }}</p>
           <!-- recorremos cada langs en el parrafo, ponemos -1 para eliminar la ultima coma
           que los separa -->
-          <p>Tecnologias: <span v-for="(lang, i) in data.langs" :key="i">
-          {{ data.langs.length - 1 <= i ? lang : ` ${ lang},  `}}
+          <p>Tecnologias: <span v-for="(lang, i) in data.res.langs" :key="i">
+          {{ data.res.langs.length - 1 <= i ? lang : ` ${ lang},  `}}
           </span></p>
         </div>
         <div class="card-action">
             <div class="row">
-             <router-link to="/edit" class="col s6 waves-effect waves-light btn amber darken-3">
+              <!-- dos puntos para que lo interprete como template `` string -->
+             <router-link 
+             :to="`/edit-project/${data.id}`"
+              class="col s6 waves-effect waves-light btn amber darken-3">
             
                 <i class="material-icons">edit</i>
                 

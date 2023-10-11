@@ -32,10 +32,14 @@ export default {
           
            //recorremos el array projects y le agregamos la respuesta con su indice
             for(let i in res){
-              this.projects.push(res[i])
-            }
-            console.log(this.projects)
-            
+              //podemos guardar un objeto en el array para obtener el id mas facil
+              //y los datos
+              this.projects.push({
+                id: i,
+                res: res[i]
+              })
+              // this.projects.push(res[i])
+            }            
         }
     }
 }
