@@ -5,7 +5,7 @@
                 <router-link to="/proyectos"
                 class="col s12 waves-effect waves-light btn amber darken-3">
                     <i class="material-icons">arrow_back</i>
-                Editar proyecto
+                Regresar a los proyectos
                 </router-link>
              
         </div>
@@ -73,24 +73,20 @@
                 }
             }
         },
+        mounted(){
+          this.getProjects();
+        },
         methods: {
            
-            async createdProjects() {
-              
-               const data = await fetch("https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects.json",//projects.json crea en firebase,
-               {
-                //creamos el metodo post para ingresar datos en firebase
-                method: "POST",
-                //mandamos el objeto en formato objeto json de javascript
-                body: JSON.stringify(this.project)
-                // project: this.project
-               }
-               )
-               console.log(data)
-            //    const res = await data.json()
-               
-                
-            }
+            async getProjects() {
+              // con esto this.$route.params.id obtenemos la ruta los parametros y el id que necesitamos
+            //mandamos el id como string en la ruta ${id} usando ``
+              const id = this.$route.params.id
+                const data = await fetch(
+               `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${id}.json`)
+           const res = await data.json();
+           console.log(res)
+             }
         }
     }
     </script>
