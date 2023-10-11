@@ -17,13 +17,15 @@
           <div class="row">
             <div class="input-field col s12">
                 <input id="first_name" type="text" class="validate"
+                placeholder="Nombre del proyecto"
                 v-model="project.title">
-              <label for="first_name">Nombre del proyecto</label>
+              <label for="first_name"></label>
             </div>
             <div class="input-field col s12">
               <input id="last_name" type="text" class="validate"
+              placeholder="Descripcion del proyecto"
               v-model="project.description">
-              <label for="last_name">Descripcion del proyecto</label>
+              <label for="last_name"></label>
             </div>
             <p>
                 <label>
@@ -65,12 +67,8 @@
     export default {
         data(){
             return{
-                project:{
-                    title: " ",
-                    description: " ",
-                    langs: [],
-                    status: true
-                }
+                project: { } //colocamos el objeto vacio para llenarlo con el objeto obtenido
+                //de la respuesta en getProjects
             }
         },
         mounted(){
@@ -85,7 +83,9 @@
                 const data = await fetch(
                `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${id}.json`)
            const res = await data.json();
-           console.log(res)
+           
+           this.project = res;
+           
              }
         }
     }
