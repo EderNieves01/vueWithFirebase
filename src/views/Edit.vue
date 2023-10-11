@@ -100,10 +100,8 @@
            // project: this.project
           }
           )
-          console.log(data)
+
        //    const res = await data.json()
-          
-           
        }
         }
     }

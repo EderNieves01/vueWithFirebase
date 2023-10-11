@@ -1,7 +1,5 @@
 <template>
-
-<h2 class="header">Horizontal Card</h2>
-    <div class="card horizontal">
+    <div class="card horizontal" v-if="data.res.status">
       <div class="card-stacked">
         <div class="card-content">
           <!-- cambiamos el metodo de entra de data.title por data.res.title ya
@@ -25,10 +23,11 @@
                 <i class="material-icons">edit</i>
                 
             </router-link>
-             <a class="col s6 waves-effect waves-light btn red lighten-1">
+            <!-- cambiamos a button para poder hacer un evento aqui -->
+             <button @click="deleteProjects" class="col s6 waves-effect waves-light btn red lighten-1">
                
                  <i class="material-icons">delete</i>
-             </a>
+             </button>
             
             </div>
           </div>
@@ -41,6 +40,19 @@
 export default{
     props: {
         data: Object
+    },
+    methods: {
+       async deleteProjects(){
+        //normativa de los programadores: no se eliminan datos solo se actualizar colocando true a false
+        //para mostrar la informacion
+        const id = this.data.id;
+        await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${id}.json`,
+        {
+          method: "PATCH",
+          body: JSON.stringify( { status: false} )
+        }
+        );
+      }
     }
 }
 </script>
