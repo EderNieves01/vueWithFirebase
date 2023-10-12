@@ -18,7 +18,7 @@
             <div class="input-field col s12">
                 <input id="first_name" type="text" class="validate"
                 placeholder="Nombre del proyecto"
-                v-model="project.title">
+              v-model="project.title"> 
               <label for="first_name"></label>
             </div>
             <div class="input-field col s12">
@@ -83,15 +83,17 @@
             //mandamos el id como string en la ruta ${id} usando ``
               
                 const data = await fetch(
-               `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json`)
+               `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json`);
+
            const res = await data.json();
            
            this.project = res;
            
              },
+
              async updateProjects() {
           
-          const data = await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json`,//projects.json crea en firebase,
+          await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json`,//projects.json crea en firebase,
           {
       
            method: "PATCH", //actualiza los datos en firebase
@@ -99,10 +101,8 @@
            body: JSON.stringify(this.project)
            // project: this.project
           }
-          )
-
-       //    const res = await data.json()
-       }
-        }
-    }
+          );
+       },
+        },
+    };
     </script>

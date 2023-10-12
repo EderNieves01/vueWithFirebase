@@ -39,19 +39,25 @@
 <script>
 export default{
     props: {
-        data: Object
+        data: Object,
     },
     methods: {
-       async deleteProjects(){
+       async deleteProjects() {
         //normativa de los programadores: no se eliminan datos solo se actualizar colocando true a false
         //para mostrar la informacion
         const id = this.data.id;
-        await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${id}.json`,
+     const respuesta = await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${id}.json`,
         {
           method: "PATCH",
           body: JSON.stringify( { status: false} )
         }
-        );
+        ); 
+        //con esto podemos actualizar la pagina sin necesidad de recargarla
+        //elimininando asi los proyectos 
+        const data = await respuesta.json();
+        this.data.res.status = data["status"];
+     
+        console.log(data)
       }
     }
 }
