@@ -54,7 +54,8 @@
         </p>
            
             <button class="btn waves-effect waves-light col s12" type="submit" name="action">Submit
-        <i class="material-icons right">send</i>
+        <i class="material-icons right" to="/proyectos">send</i>
+        
       </button>
           </div>
         </form>
