@@ -32,6 +32,9 @@
 </template>
 
 <script>
+//importamos las rutas
+import router from "../router/index"
+
 export default {
 data: () => ({
     email: "",
@@ -58,7 +61,10 @@ data: () => ({
             }),
            }
            )
-           console.log(await res.json())
+           console.log(await res.json());
+           //llamamos la importacion y le hacemos un push del nombre de la rutagit add .
+           
+           router.push("/login")
         }
        else {
             return console.log("contrasenas invalidas")

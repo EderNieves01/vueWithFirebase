@@ -37,6 +37,8 @@
 </template>
 
 <script>
+
+import router from "../router/index"
 export default {
 data: () => ({
     email: "",
@@ -70,7 +72,7 @@ data: () => ({
             this.error = true;
            }else{
             this.error = false;
-            console.log(data);
+            router.push("/proyectos")
            }
                 
             } catch (error) {} 
