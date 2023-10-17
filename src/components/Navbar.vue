@@ -1,3 +1,4 @@
+import Login from '@/components/Login.vue';
 <template>
   <div class="nav">
     <nav>
@@ -7,10 +8,10 @@
         <i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li>
-            <router-link to="/">Home</router-link> 
+            <router-link to="/">Register</router-link> 
         </li>
         <li>
-            <router-link to="/about">About</router-link> 
+            <router-link to="/login">Log in</router-link> 
         </li>
         <li>
             <router-link to="/created">Create</router-link> 
@@ -27,12 +28,12 @@
   <ul class="sidenav" id="mobile-demo">
     <li>
             <router-link to="/">
-              Home
+              Register
             </router-link> 
         </li>
         <li>
-            <router-link to="/about">
-              About
+            <router-link to="/login">
+              Log in
             </router-link> 
         </li>
         <li>
