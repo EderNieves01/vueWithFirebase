@@ -27,8 +27,11 @@ export default {
   },
   methods: {
     async getProjects() {
+      //obtener informacion de localstorage
+      const user = JSON.parse(localStorage.getItem("user"));
       const data = await fetch(
-        "https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects.json"
+        `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects.json?auth=${user.idToken}`
+        //user.idToken para acceder a la info de firebase mediante el token random
       );
       const res = await data.json();
 

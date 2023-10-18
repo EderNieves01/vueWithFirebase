@@ -72,13 +72,17 @@ data: () => ({
             this.error = true;
            }else{
             this.error = false;
+
             //guardando seccion en el local storage
             const store = localStorage.setItem("user", JSON.stringify(data));
             router.push("/proyectos")
-
-           const getStorage = localStorage.getItem("user");
-           //parseamos para poder trabajar el objeto
-           console.log(JSON.parse(getStorage))
+            
+            
+             const getStorage = JSON.parse(localStorage.getItem("user"))
+             //parseamos para poder trabajar el objeto
+           
+            //const getStorage = localStorage.getItem("user");
+            console.log(getStorage)
            }
                 
             } catch (error) {} 
