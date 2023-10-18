@@ -83,8 +83,9 @@
               // con esto this.$route.params.id obtenemos la ruta los parametros y el id que necesitamos
             //mandamos el id como string en la ruta ${id} usando ``
             const user = JSON.parse(localStorage.getItem("user"));
+            ///${user.localId} editando desde el propio repositorio
                 const data = await fetch(
-               `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json?auth=${user.idToken}`);
+               `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${user.localId}/${this.id}.json?auth=${user.idToken}`);
 
            const res = await data.json();
            
