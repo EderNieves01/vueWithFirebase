@@ -82,9 +82,9 @@
             async getProjects() {
               // con esto this.$route.params.id obtenemos la ruta los parametros y el id que necesitamos
             //mandamos el id como string en la ruta ${id} usando ``
-              
+            const user = JSON.parse(localStorage.getItem("user"));
                 const data = await fetch(
-               `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json`);
+               `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json?auth=${user.idToken}`);
 
            const res = await data.json();
            
@@ -93,8 +93,8 @@
              },
 
              async updateProjects() {
-          
-          await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json`,//projects.json crea en firebase,
+              const user = JSON.parse(localStorage.getItem("user"));
+          await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json?auth=${user.idToken}`,//projects.json crea en firebase,
           {
       
            method: "PATCH", //actualiza los datos en firebase

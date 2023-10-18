@@ -76,8 +76,9 @@ export default {
     methods: {
        
         async createdProjects() {
-          
-           const data = await fetch("https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects.json",//projects.json crea en firebase,
+          const user = JSON.parse(localStorage.getItem("user"));
+           const data = await fetch
+           (`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects.json?auth=${user.idToken}`,//projects.json crea en firebase,
            {
             //creamos el metodo post para ingresar datos en firebase
             method: "POST",

@@ -43,17 +43,18 @@ export default{
     },
     methods: {
        async deleteProjects() {
+        const user = JSON.parse(localStorage.getItem("user"));
         //normativa de los programadores: no se eliminan datos solo se actualizar colocando true a false
         //para mostrar la informacion
         const id = this.data.id;
-     const respuesta = await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${id}.json`,
+     const respuesta = await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${id}.json?auth=${user.idToken}`,
         {
           method: "PATCH",
           body: JSON.stringify( { status: false} )
         }
         ); 
         //con esto podemos actualizar la pagina sin necesidad de recargarla
-        //elimininando asi los proyectos 
+        //elimininando asi los elementos 
         const data = await respuesta.json();
         this.data.res.status = data["status"];
      
