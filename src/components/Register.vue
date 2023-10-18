@@ -61,9 +61,9 @@ data: () => ({
             }),
            }
            )
-           console.log(await res.json());
+          const data = await res.json();
            //llamamos la importacion y le hacemos un push del nombre de la rutagit add .
-           
+           localStorage.setItem("user",JSON.stringify(data))
            router.push("/login")
         }
        else {
