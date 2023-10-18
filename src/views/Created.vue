@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import router from "../router/index"
 export default {
     data(){
         return{
@@ -80,7 +81,7 @@ export default {
            const data = await fetch
            //con el /localId podemos guardar info con cada usuario registrado y mostrar solo su info
            /////${user.localId} creando desde el propio repositorio
-           (`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${user.localId}/${user.localId}.json?auth=${user.idToken}`,//projects.json crea en firebase,
+           (`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${user.localId}.json?auth=${user.idToken}`,//projects.json crea en firebase,
            {
             //creamos el metodo post para ingresar datos en firebase
             method: "POST",
@@ -90,6 +91,7 @@ export default {
            }
            )
            console.log(data)
+           router.push("/proyectos")
         //    const res = await data.json()
            
             

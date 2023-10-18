@@ -53,10 +53,12 @@
           </label> 
         </p>
            
-            <button class="btn waves-effect waves-light col s12" type="submit" name="action">Submit
-        <i class="material-icons right" to="/proyectos">send</i>
+          <router-link >
+             <button class="btn waves-effect waves-light col s12" type="submit" to="/proyectos" name="action">Submit
+        <i class="material-icons right" >send</i>  </button>
+          </router-link> 
         
-      </button>
+    
           </div>
         </form>
       </div>
@@ -95,7 +97,7 @@
 
              async updateProjects() {
               const user = JSON.parse(localStorage.getItem("user"));
-          await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${this.id}.json?auth=${user.idToken}`,//projects.json crea en firebase,
+          await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${user.localId}/${this.id}.json?auth=${user.idToken}`,//projects.json crea en firebase,
           {
       
            method: "PATCH", //actualiza los datos en firebase
