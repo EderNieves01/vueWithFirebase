@@ -78,7 +78,8 @@ export default {
         async createdProjects() {
           const user = JSON.parse(localStorage.getItem("user"));
            const data = await fetch
-           (`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects.json?auth=${user.idToken}`,//projects.json crea en firebase,
+           //con el /localId podemos guardar info con cada usuario registrado y mostrar solo su info
+           (`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${user.localId}.json?auth=${user.idToken}`,//projects.json crea en firebase,
            {
             //creamos el metodo post para ingresar datos en firebase
             method: "POST",
