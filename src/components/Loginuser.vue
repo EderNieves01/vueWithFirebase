@@ -72,7 +72,11 @@ data: () => ({
             this.error = true;
            }else{
             this.error = false;
+            //guardando seccion en el local storage
+            const store = localStorage.setItem("user", JSON.stringify(data));
             router.push("/proyectos")
+
+            console.log(localStorage.getItem("user"));
            }
                 
             } catch (error) {} 
