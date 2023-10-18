@@ -46,8 +46,9 @@ export default{
         const user = JSON.parse(localStorage.getItem("user"));
         //normativa de los programadores: no se eliminan datos solo se actualizar colocando true a false
         //para mostrar la informacion
+        // /${user.localId} after projects para poder acceder a su propio repositorio 
         const id = this.data.id;
-     const respuesta = await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${id}.json?auth=${user.idToken}`,
+     const respuesta = await fetch(`https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${user.localId}/${id}.json?auth=${user.idToken}`,
         {
           method: "PATCH",
           body: JSON.stringify( { status: false} )
