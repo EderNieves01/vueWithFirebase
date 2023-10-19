@@ -6,6 +6,13 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
+  "vue": {
+    "name": "Gestor de Proyectos",
+    "themeColor": "#03a9f4",
+    "appleMobileWebAppcapable": "yes",
+    "appleMobileWebAppStatusBarStyle":
+    "black-translucent"
+  },
   "dependencies": {
     "core-js": "^3.8.3",
     "materialize-css": "^1.0.0",
