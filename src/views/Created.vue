@@ -90,7 +90,6 @@ export default {
             // project: this.project
            }
            )
-           console.log(data)
            router.push("/proyectos")
         //    const res = await data.json()
            

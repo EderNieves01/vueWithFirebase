@@ -30,7 +30,6 @@ export default {
       //obtener informacion de localstorage
       const user = JSON.parse(localStorage.getItem("user"));
       const data = await fetch(
-        
         //aqui podemos indentificar cual usuario esta accediendo /${user.localId}
         `https://crud-vue-5a4b5-default-rtdb.firebaseio.com/projects/${user.localId}.json?auth=${user.idToken}`
         //user.idToken para acceder a la info de firebase mediante el token random
