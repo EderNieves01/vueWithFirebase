@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-          
+          <h1>Login</h1>
   <div class="row">
     <div v-if="error" class="col s12 m7">
     <div class="card horizontal">

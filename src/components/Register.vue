@@ -1,6 +1,7 @@
 <template>
     <div class="container">
   <div class="row">
+    <h1>Register</h1>
     <form @submit.prevent="validarForm()" class="col s12">
       <div class="row">
         <div class="row">
@@ -34,6 +35,7 @@
 <script>
 //importamos las rutas
 import router from "../router/index"
+import Register from '@/components/Register.vue';
 
 export default {
 data: () => ({
